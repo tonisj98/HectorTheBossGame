@@ -1,0 +1,213 @@
+<style>
+  html {
+  height: 100%;
+}
+body {
+  margin:0;
+  padding:0;
+  font-family: sans-serif;
+  background: linear-gradient(#141e30, #243b55);
+}
+
+.login-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,.5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-radius: 10px;
+}
+
+.login-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+
+.login-box .user-box {
+  position: relative;
+}
+
+.login-box .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+.login-box .user-box label {
+  position: absolute;
+  top:0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #03e9f4;
+  font-size: 12px;
+}
+
+
+
+
+
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
+  }
+  50%,100% {
+    left: 100%;
+  }
+}
+
+
+
+@keyframes btn-anim2 {
+  0% {
+    top: -100%;
+  }
+  50%,100% {
+    top: 100%;
+  }
+}
+
+
+@keyframes btn-anim3 {
+  0% {
+    right: -100%;
+  }
+  50%,100% {
+    right: 100%;
+  }
+}
+
+@keyframes btn-anim4 {
+  0% {
+    bottom: -100%;
+  }
+  50%,100% {
+    bottom: 100%;
+  }
+}
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:600&display=swap');
+
+span{
+  position: relative;
+  display: inline-flex;
+  width: 180px;
+  height: 55px;
+  margin: 0 15px;
+  perspective: 1000px;
+}
+span a{
+  font-size: 19px;
+  letter-spacing: 1px;
+  transform-style: preserve-3d;
+  transform: translateZ(-25px);
+  transition: transform .25s;
+  font-family: 'Montserrat', sans-serif;
+  
+}
+span a:before,
+span a:after{
+  position: absolute;
+  content: "PLAY";
+  height: 55px;
+  width: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 5px solid black;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+span a:before{
+  color: #fff;
+  background: #000;
+  transform: rotateY(0deg) translateZ(25px);
+}
+span a:after{
+  color: #000;
+  transform: rotateX(90deg) translateZ(25px);
+}
+span a:hover{
+  transform: translateZ(-25px) rotateX(-90deg);
+}
+
+
+</style>
+<div class="login-box">
+  <h2>😎 Welcome Hector 😎</h2>
+  <form id="form_id" method="post" name="myform">
+    <div class="user-box">
+      <input type="text" name="username" id="username" required="">
+      <label>Username</label>
+    </div>
+    <div class="user-box">
+      <input name="password" id="password" type="password" required="">
+      <label>Password</label>
+    </div>
+    <div class="user-box"></br>
+      <input type="text" name="p1" id="p1" required="">
+      <label>Player 1 NAME</label>
+    </div>
+    <div class="user-box">
+      <input type="text" name="p2" id="p2" required="">
+      <label>PLAYER 2 NAME</label>
+    </div>
+    <span><a href="#" onclick="validate()"></a></span>
+
+    
+  </form>
+</div>
+
+<script>
+
+var attempt = 3; // Variable to count number of attempts.
+// Below function Executes on click of login button.
+
+
+  // var p2 = document.getElementById("p2").value;  
+
+  // sessionStorage.setItem("p1", p1);
+  // sessionStorage.setItem("p2", p2);
+
+
+function validate(){
+  var a= document.getElementById("p1").value;;
+localStorage.setItem("myValue1", a);
+window.location.href="index.html";
+
+var a2= document.getElementById("p2").value;;
+localStorage.setItem("myValue2", a2);
+window.location.href="index.html";
+
+
+var username = document.getElementById("username").value;
+var password = document.getElementById("password").value;
+if ( username == "hector" && password == "ainaisugly"){
+alert ("Login successfully");
+window.location = "./login.html"; // Redirecting to other page.
+return false;
+}
+
+}
+
+</script>
